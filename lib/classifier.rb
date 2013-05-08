@@ -1,21 +1,19 @@
 class Classifier
 
   def initialize
-    @classifications = {}
-    @classifications[ warm:false, sunny:false, windy:false ] = "cold-drizzle"
-    @classifications[ warm:false, sunny:false,  windy:true ] = "storm"
-    @classifications[ warm:false, sunny:true,  windy:false ] = "winter-wonderland"
-    @classifications[ warm:false, sunny:true,  windy:true ] = "winter-sailing"
-    @classifications[ warm:true, sunny:false,  windy:false ] = "muggy"
-    @classifications[ warm:true, sunny:false,  windy:true ] = "hardcore-sailing"
-    @classifications[ warm:true, sunny:true,  windy:false ] = "laid-back"
-    @classifications[ warm:true, sunny:true,  windy:true ] = "perfect"
+    @c = {}
+    @c[ warm:false, sunny:false, windy:false ] = "cold-drizzle"
+    @c[ warm:false, sunny:false,  windy:true ] = "storm"
+    @c[ warm:false, sunny:true,  windy:false ] = "winter-wonderland"
+    @c[ warm:false, sunny:true,  windy:true ] = "winter-sailing"
+    @c[ warm:true, sunny:false,  windy:false ] = "muggy"
+    @c[ warm:true, sunny:false,  windy:true ] = "hardcore-sailing"
+    @c[ warm:true, sunny:true,  windy:false ] = "laid-back"
+    @c[ warm:true, sunny:true,  windy:true ] = "perfect"
   end
 
   def apply(weather)
-    @classifications[ warm:weather.is_warm, 
-                      sunny:weather.is_sunny, 
-                      windy:weather.is_windy ]
+    @c[ warm:weather.is_warm, sunny:weather.is_sunny, windy:weather.is_windy ]
   end
 
 end
