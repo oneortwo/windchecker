@@ -1,11 +1,11 @@
-require "weather"
+require_relative 'weather'
 
 class Populator
   def populate(fc)
     sanity_check(fc)
-    temp = fc['temperature'][0]['value']
-    wind = fc['windSpeed'][0]['mps']
-    sunny = fc['symbol'][0]['number']
+    temp = fc['temperature'][0]['value'].to_i
+    wind = fc['windSpeed'][0]['mps'].to_i
+    sunny = fc['symbol'][0]['number'].to_i
 
     Weather.new(temp, wind, sunny)
   end
