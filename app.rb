@@ -22,6 +22,6 @@ get '/' do
   weather = $populator.populate(xml)
   desc = $classifier.apply(weather)
   img = $picker.pick("public/img/#{desc}")
-  @imgTag = "img/#{desc}/#{img}"
+  @imgTag = "background: url(img/#{desc}/#{img}) no-repeat center center fixed; background-size: cover;"
   haml :index
 end

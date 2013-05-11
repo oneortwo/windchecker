@@ -1,8 +1,6 @@
 !!!  
-%html  
-  %head  
+%html{:style => @imgTag}
+  %head
     %title My Sinatra Website
     %link(rel="stylesheet" href="css/style.css") 
   %body  
-    %h1=@imgTag
-    %img{:src => @imgTag}
