@@ -18,6 +18,8 @@ get '/' do
   forecast = Net::HTTP.get($uri)
   xml = $reader.read(forecast)
   weather = $populator.populate(xml)
-  @desc = $classifier.apply(weather)
+  desc = $classifier.apply(weather)
+  @imgTag = "img/#{desc}.jpg"
+  puts @imgTag
   haml :index
 end
