@@ -2,14 +2,14 @@ class Classifier
 
   def initialize
     @c = {}
-    @c[ warm:false, sunny:false, windy:false ] = "cold-drizzle"
-    @c[ warm:false, sunny:false,  windy:true ] = "storm"
-    @c[ warm:false, sunny:true,  windy:false ] = "winter-wonderland"
-    @c[ warm:false, sunny:true,  windy:true ] = "winter-sailing"
-    @c[ warm:true, sunny:false,  windy:false ] = "muggy"
-    @c[ warm:true, sunny:false,  windy:true ] = "hardcore-sailing"
-    @c[ warm:true, sunny:true,  windy:false ] = "laid-back"
-    @c[ warm:true, sunny:true,  windy:true ] = "perfect"
+    @c[ warm:false, sunny:false, windy:false ] = {"short" => "cold-drizzle", "long" => "If I where you, Id stay in..."}
+    @c[ warm:false, sunny:false,  windy:true ] = {"short" => "storm", "long" => "It, will be windy allright, but thats about it"}
+    @c[ warm:false, sunny:true,  windy:false ] = {"short" => "winter-wonderland", "long" => "It will be cold and not very windy"}
+    @c[ warm:false, sunny:true,  windy:true ] = {"short" => "winter-sailing", "long" => "If you dont mind a bit of chilliness, its gonna be pretty nice"}
+    @c[ warm:true, sunny:false,  windy:false ] = {"short" => "muggy", "long" => "Its gonna be sort of warm, but not very windy"}
+    @c[ warm:true, sunny:false,  windy:true ] = {"short" => "hardcore-sailing", "long" => "Not much sun, but otherwise pretty good"}
+    @c[ warm:true, sunny:true,  windy:false ] = {"short" => "laid-back", "long" => "Great weather for anything but sailing, not much wind I regret"}
+    @c[ warm:true, sunny:true,  windy:true ] = {"short" => "perfect", "long" => "Pretty much perfect..."}
   end
 
   def apply(weather)

@@ -9,7 +9,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { false }
     w.stub(:is_sunny) { false }
     w.stub(:is_windy) { false }
-    c.apply(w).should eq("cold-drizzle")
+    c.apply(w)['short'].should eq("cold-drizzle")
   end
 
   it "returns storm when f f t" do
@@ -18,7 +18,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { false }
     w.stub(:is_sunny) { false }
     w.stub(:is_windy) { true }
-    c.apply(w).should eq("storm")
+    c.apply(w)['short'].should eq("storm")
   end
 
   it "returns winter-wonderland when f t f" do
@@ -27,7 +27,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { false }
     w.stub(:is_sunny) { true }
     w.stub(:is_windy) { false }
-    c.apply(w).should eq("winter-wonderland")
+    c.apply(w)['short'].should eq("winter-wonderland")
   end
 
   it "returns winter-sailing when f t t" do
@@ -36,7 +36,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { false }
     w.stub(:is_sunny) { true }
     w.stub(:is_windy) { true }
-    c.apply(w).should eq("winter-sailing")
+    c.apply(w)['short'].should eq("winter-sailing")
   end
 
   it "returns muggy when t f f" do
@@ -45,7 +45,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { true }
     w.stub(:is_sunny) { false }
     w.stub(:is_windy) { false }
-    c.apply(w).should eq("muggy")
+    c.apply(w)['short'].should eq("muggy")
   end
 
   it "returns hardcore-sailing when t f t" do
@@ -54,7 +54,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { true }
     w.stub(:is_sunny) { false }
     w.stub(:is_windy) { true }
-    c.apply(w).should eq("hardcore-sailing")
+    c.apply(w)['short'].should eq("hardcore-sailing")
   end
 
   it "returns laid-back when t t f" do
@@ -63,7 +63,7 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { true }
     w.stub(:is_sunny) { true }
     w.stub(:is_windy) { false }
-    c.apply(w).should eq("laid-back")
+    c.apply(w)['short'].should eq("laid-back")
   end
 
   it "returns perfect when t t t" do
@@ -72,6 +72,6 @@ describe Classifier, "#apply" do
     w.stub(:is_warm) { true }
     w.stub(:is_sunny) { true }
     w.stub(:is_windy) { true }
-    c.apply(w).should eq("perfect")
+    c.apply(w)['short'].should eq("perfect")
   end
 end

@@ -1,3 +1,33 @@
-h1 {
-  color: red;
+body {
+  color: #CCC;
+  font-family: Helvetica;
+}
+
+.info {
+  position:absolute;
+  bottom:20px;
+  left:0px;
+  width:100%;
+  height:150px;
+  background:#000;
+  opacity:0.6;
+  padding:7px 0 0 15px
+}
+
+#message {
+  font-size: 2em;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.weather {
+   padding-top: 37px;
+   font-size: 14px;
+   color: #FFF;
+   letter-spacing: 1px;
+}
+
+.weather .first {
+  color: #4C4;
+  padding-right: 30px;
 }

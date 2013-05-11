@@ -32,10 +32,10 @@ describe Weather, "#data" do
     w = Weather.new
     w.symbol = 1
     w.is_sunny.should eq true
-    
+
     w.symbol = 2
     w.is_sunny.should eq true
-    
+
     w.symbol = 3
     w.is_sunny.should eq true
 
@@ -44,6 +44,12 @@ describe Weather, "#data" do
 
     w.symbol = 4
     w.is_sunny.should eq false
+  end
+
+  it "is possible to set a symbol text" do
+    w = Weather.new
+    w.symbol_text = 'great'
+    w.symbol_text.should eq 'great'
   end
 
 end

@@ -20,8 +20,14 @@ get '/' do
   forecast = Net::HTTP.get($uri)
   xml = $reader.read(forecast)
   weather = $populator.populate(xml)
-  desc = $classifier.apply(weather)
+  description = $classifier.apply(weather)
+  desc = description['short']
   img = $picker.pick("public/img/#{desc}")
+
+  @message = description['long']
+  @symbol = weather.symbol_text
+  @temperature = weather.temperature
+  @wind_speed = weather.wind_speed
   @imgTag = "background: url(img/#{desc}/#{img}) no-repeat center center fixed; background-size: cover;"
   haml :index
 end

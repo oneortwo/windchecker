@@ -1,6 +1,18 @@
 !!!  
 %html{:style => @imgTag}
   %head
-    %title My Sinatra Website
+    %title Will we have good sailing weather tomorrow?
     %link(rel="stylesheet" href="css/style.css") 
   %body  
+    %div.info
+      %span#message=@message
+      %table.weather  
+        %tr
+          %td.first sunshine:
+          %td=@symbol
+        %tr
+          %td.first wind:
+          %td #{@wind_speed} m/s
+        %tr
+          %td.first temperature:
+          %td #{@temperature} degrees
