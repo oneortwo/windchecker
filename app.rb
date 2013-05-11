@@ -8,10 +8,12 @@ require_relative 'lib/weather'
 require_relative 'lib/xml_reader'
 require_relative 'lib/populator'
 require_relative 'lib/classifier'
+require_relative 'lib/image_picker'
 
 $reader = XmlReader.new
 $populator = Populator.new
 $classifier = Classifier.new
+$picker = ImagePicker.new
 $uri = URI('http://www.yr.no/place/Sweden/Stockholm/Stockholm/forecast.xml')
 
 get '/' do
@@ -19,7 +21,7 @@ get '/' do
   xml = $reader.read(forecast)
   weather = $populator.populate(xml)
   desc = $classifier.apply(weather)
-  @imgTag = "img/#{desc}.jpg"
-  puts @imgTag
+  img = $picker.pick("public/img/#{desc}")
+  @imgTag = "img/#{desc}/#{img}"
   haml :index
 end
