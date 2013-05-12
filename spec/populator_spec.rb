@@ -1,5 +1,7 @@
 require 'populator'
-$mock_weather_data = {'period' => '2',
+require 'date'
+
+$mock_weather_data = {'from' => '2013-05-11T17:00:00', 'period' => '2',
                       'windSpeed'=>[{'mps'=>'23'}],
                       'temperature'=>[{'value'=>'2'}],
                       'symbol'=>[{'number'=>'1', 'name' => 'great clouds'}]
@@ -33,6 +35,12 @@ describe Populator do
     p = Populator.new
     weather = p.populate($mock_weather_data)
     weather.symbol_text.should eq('great clouds')
+  end
+
+  it "includes the date" do
+    p = Populator.new
+    weather = p.populate($mock_weather_data)
+    weather.date.should eq(Date.new(2013,5,11))
   end
 
 end

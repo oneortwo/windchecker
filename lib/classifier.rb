@@ -8,7 +8,7 @@ class Classifier
     @c[ warm:false, sunny:true,  windy:true ] = {"short" => "winter-sailing", "long" => "If you dont mind a bit of chilliness, its gonna be pretty nice"}
     @c[ warm:true, sunny:false,  windy:false ] = {"short" => "muggy", "long" => "Its gonna be sort of warm, but not very windy"}
     @c[ warm:true, sunny:false,  windy:true ] = {"short" => "hardcore-sailing", "long" => "Not much sun, but otherwise pretty good"}
-    @c[ warm:true, sunny:true,  windy:false ] = {"short" => "laid-back", "long" => "Great weather for anything but sailing, not much wind I regret"}
+    @c[ warm:true, sunny:true,  windy:false ] = {"short" => "laid-back", "long" => "Great weather for anything but sailing"}
     @c[ warm:true, sunny:true,  windy:true ] = {"short" => "perfect", "long" => "Pretty much perfect..."}
   end
 

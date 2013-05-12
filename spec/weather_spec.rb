@@ -1,4 +1,5 @@
 require 'weather'
+require 'date'
 
 describe Weather, "#data" do
   it "contains temperature, wind speed and symbol" do
@@ -50,6 +51,12 @@ describe Weather, "#data" do
     w = Weather.new
     w.symbol_text = 'great'
     w.symbol_text.should eq 'great'
+  end
+
+  it "is possible to set a date" do
+    w = Weather.new
+    w.date = Date.parse('2013-05-17')
+    w.date.should eq Date.new(2013,05,17)
   end
 
 end

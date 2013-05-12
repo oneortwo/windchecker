@@ -1,4 +1,5 @@
 require_relative 'weather'
+require 'date'
 
 class Populator
   def populate(fc)
@@ -9,8 +10,16 @@ class Populator
 
     w = Weather.new(temp, wind, sunny)
     w.symbol_text = fc['symbol'][0]['name']
+    w.date = get_date(fc)
 
     return w
+  end
+
+  def get_date(fc)
+    raw = fc['from']
+    regex = /\d{4}\-\d{2}\-\d{2}/
+    date = raw[regex]
+    return Date.parse(date)
   end
 
   def sanity_check(fc)
